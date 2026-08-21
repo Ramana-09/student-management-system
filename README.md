@@ -112,11 +112,12 @@ Open `student-frontend/index.html` in your browser
 - [ ] Add pagination for large student lists
 - [ ] Deploy to a live server (Render / Railway)
 
-## 👤 Author
+👨‍💻 Author
 
-**Your Name**
-- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+Ramana S
 
-## 📄 License
+B.Tech – Artificial Intelligence & Data Science
 
-This project is open source and available under the [MIT License](LICENSE).
+GitHub: Ramana-09
+
+
