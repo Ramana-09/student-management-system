@@ -1,191 +1,122 @@
 # 🎓 Student Management System
 
-A full-stack Student Management System built using **Spring Boot, MySQL, HTML, CSS, and JavaScript**. This application allows users to manage student records through a simple web interface connected to a RESTful backend API.
+A simple full stack CRUD application to manage student records — built with **Spring Boot**, **MySQL**, and **HTML/CSS/JavaScript**.
 
-## 🚀 Features
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.1-brightgreen)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue)
 
-* ➕ Add new student
-* 📋 View all students
-* ✏️ Update student details
-* 🗑️ Delete student
-* 🔄 RESTful API integration
-* 🗄️ MySQL database integration
-* 🌐 Frontend and backend integration
-* 🔐 CORS configuration for frontend-backend communication
+## 📖 About
 
-## 🛠️ Technologies Used
+This project lets you add, view, and delete student records through a clean web interface. It was built as a learning project to understand how a Java backend (REST API) connects with a database and a frontend.
 
-### Backend
+## ✨ Features
 
-* Java
-* Spring Boot
-* Spring Web
-* Spring Data JPA
-* REST API
-* Maven
+- ➕ Add new students (Name, Email, Department, Age)
+- 📋 View all students in a table
+- 🗑️ Delete a student record
+- 🔄 Real-time UI updates without page reload (fetch API)
 
-### Frontend
+## 🛠️ Tech Stack
 
-* HTML
-* CSS
-* JavaScript
+**Backend**
+- Java 21
+- Spring Boot 4.1.1
+- Spring Data JPA (Hibernate)
+- MySQL
 
-### Database
+**Frontend**
+- HTML5
+- CSS3
+- Vanilla JavaScript (Fetch API)
 
-* MySQL
+**Tools**
+- IntelliJ IDEA
+- MySQL Workbench
+- Maven
 
-### Tools
+## 📁 Project Structure
 
-* IntelliJ IDEA / Eclipse
-* MySQL Workbench
-* Git
-* GitHub
-* Postman
-
-## 🏗️ Project Structure
-
-```text
+```
 studentapp/
-│
-├── src/
-│   └── main/
-│       ├── java/
-│       │   └── com/example/studentapp/
-│       │       ├── controller/
-│       │       ├── model/
-│       │       ├── repository/
-│       │       └── service/
-│       │
-│       └── resources/
-│           └── application.properties
-│
-├── frontend/
+├── src/main/java/com/example/studentapp/
+│   ├── controller/StudentController.java   # REST API endpoints
+│   ├── service/StudentService.java         # Business logic
+│   ├── repository/StudentRepository.java   # Database access
+│   ├── model/Student.java                  # Entity class
+│   └── StudentappApplication.java          # Main class
+├── src/main/resources/
+│   └── application.properties              # DB configuration
+├── student-frontend/
 │   ├── index.html
 │   ├── style.css
 │   └── script.js
-│
-├── pom.xml
-└── README.md
+└── pom.xml
 ```
 
-## 🔄 Application Flow
+## 🚀 Getting Started
 
-```text
-Frontend (HTML/CSS/JavaScript)
-              ↓
-        REST API Request
-              ↓
-       Spring Boot Backend
-              ↓
-       Service / Repository
-              ↓
-          MySQL Database
+### Prerequisites
+- Java 21+
+- Maven
+- MySQL installed and running
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/YOUR_USERNAME/student-management-system.git
+cd student-management-system
 ```
 
-## 🔗 API Endpoints
-
-| Method | Endpoint             | Description       |
-| ------ | -------------------- | ----------------- |
-| GET    | `/api/students`      | Get all students  |
-| GET    | `/api/students/{id}` | Get student by ID |
-| POST   | `/api/students`      | Add a new student |
-| PUT    | `/api/students/{id}` | Update student    |
-| DELETE | `/api/students/{id}` | Delete student    |
-
-## 🗄️ Database Configuration
-
-Create a MySQL database and configure the database details in:
-
-```text
-src/main/resources/application.properties
+### 2. Create the database
+```sql
+CREATE DATABASE student_db;
 ```
 
-Example:
-
+### 3. Configure database credentials
+Edit `src/main/resources/application.properties`:
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/studentdb
+spring.datasource.url=jdbc:mysql://localhost:3306/student_db
 spring.datasource.username=root
 spring.datasource.password=YOUR_PASSWORD
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
 ```
 
-> Replace `YOUR_PASSWORD` with your local MySQL password.
-
-## ▶️ How to Run
-
-### 1. Clone the Repository
-
+### 4. Run the backend
 ```bash
-git clone https://github.com/Ramana-09/student-management-system.git
+mvn spring-boot:run
 ```
+Backend runs on `http://localhost:8080`
 
-### 2. Open the Project
+### 5. Run the frontend
+Open `student-frontend/index.html` in your browser
+(or use a Live Server extension for best results)
 
-Open the project in **IntelliJ IDEA** or **Eclipse**.
+## 🔌 API Endpoints
 
-### 3. Configure MySQL
+| Method | Endpoint              | Description           |
+|--------|------------------------|------------------------|
+| GET    | `/api/students`         | Get all students       |
+| GET    | `/api/students/{id}`    | Get a student by ID    |
+| POST   | `/api/students`         | Add a new student       |
+| PUT    | `/api/students/{id}`    | Update a student        |
+| DELETE | `/api/students/{id}`    | Delete a student        |
 
-Create the database:
+## 📸 Screenshots
 
-```sql
-CREATE DATABASE studentdb;
-```
+*(Add a screenshot of your app here after uploading)*
 
-Update your MySQL username and password in `application.properties`.
+## 🔮 Future Improvements
 
-### 4. Run the Spring Boot Application
+- [ ] Add Edit/Update functionality in the UI
+- [ ] Add search and filter options
+- [ ] Add form validation with error messages
+- [ ] Add pagination for large student lists
+- [ ] Deploy to a live server (Render / Railway)
 
-Run:
+## 👤 Author
 
-```text
-StudentappApplication.java
-```
+**Your Name**
+- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
 
-The backend will start on:
+## 📄 License
 
-```text
-http://localhost:8080
-```
-
-### 5. Open the Frontend
-
-Open the frontend `index.html` file in your browser.
-
-Make sure the Spring Boot backend is running before using the application.
-
-## 🧪 Testing
-
-The REST APIs can be tested using **Postman**.
-
-Example:
-
-```text
-GET http://localhost:8080/api/students
-```
-
-## 📌 Future Enhancements
-
-* 🔐 User authentication and authorization
-* 🔎 Search students
-* 📄 Pagination
-* 📊 Student dashboard
-* 📱 Responsive UI improvements
-* ☁️ Cloud deployment
-
-## 🎯 Project Objective
-
-The main objective of this project is to understand and implement **full-stack application development** using Java and Spring Boot, while integrating a frontend application with REST APIs and a MySQL database.
-
-## 👨‍💻 Author
-
-**Ramana S**
-
-B.Tech – Artificial Intelligence & Data Science
-
-GitHub: [Ramana-09](https://github.com/Ramana-09)
-
----
-
-⭐ If you find this project useful, consider giving it a star!
+This project is open source and available under the [MIT License](LICENSE).
